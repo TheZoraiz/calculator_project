@@ -25,6 +25,12 @@ function converter(visuals) {
     let op = "";
 
     for(let i = 0; i < visuals.length; i++) {
+        if(visuals[0] == "-" || visuals[0] == "+") {
+            if(i == 0) {
+                n1 += visuals[i];
+                continue;
+            }
+        }
         if(visuals[i] == "/" || visuals[i] == "*" || visuals[i] == "-" || visuals[i] == "+") {
             op = visuals[i];
             i++;
@@ -35,29 +41,60 @@ function converter(visuals) {
         }
         n1 += visuals[i];
     }
+    console.log(n1 + " and " + n2);
     operate(Number(n1), Number(n2), op);
 ;}
 
 let visuals = "";
-let operatorDouble = false;
+let pointDouble = false;
+let equalsPress = false;
 
 const display = document.querySelector('.screen p');
 
 
-const numbers = document.querySelectorAll(".number, .operator");
+const numbers = document.querySelectorAll(".number");
 numbers.forEach(function(number) {
     number.addEventListener("click", function(e) {
-        if(e.target.textContent == "/" || e.target.textContent == "*" || e.target.textContent == "-" || e.target.textContent == "+") {
-            operatorDouble = true;
+        if(equalsPress == true) {
+            visuals = "";
+            pointDouble = false;
+            equalsPress = false;
+        }
+        if(e.target.textContent == ".") {
+            if(pointDouble == false) {
+                visuals += e.target.textContent;
+                display.textContent = visuals;
+            }
+            pointDouble = true;
+        } else {
+            visuals += e.target.textContent;
+            display.textContent = visuals;
+        }
+    });
+});
+
+const operators = document.querySelectorAll(".operator");
+operators.forEach(function(operator) {
+    operator.addEventListener("click", function(e) {
+        if(equalsPress == true) {
+            visuals = "";
+            pointDouble = false;
+            equalsPress = false;
+        }
+        if((visuals.length > 1) && (e.target.textContent == "/" || e.target.textContent == "*" || e.target.textContent == "-" || e.target.textContent == "+")) {
+            pointDouble = false;
             converter(visuals);
         }
-        visuals += e.target.textContent;
-        display.textContent = visuals;
+        if(visuals[visuals.length - 1] != "/" || visuals[visuals.length - 1] != "*" || visuals[visuals.length - 1] != "-" || visuals[visuals.length - 1] != "+") {
+            visuals += e.target.textContent;
+            display.textContent = visuals;
+        }
     });
 });
 
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", function(){
+    equalsPress = true;
     converter(visuals);
 });
 
