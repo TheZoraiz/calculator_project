@@ -41,9 +41,6 @@ body {
 }
 
 .operator:hover, .equals:hover {
-    width: 105%;
-    height: 105%;
-    z-index: 1;
     background-color: rgb(238, 238, 54) !important;
 }
 
@@ -52,9 +49,6 @@ body {
 }
 
 .grid-items:not(.screen):hover {
-    width: 105%;
-    height: 105%;
-    z-index: 1;
     color: rgb(109, 109, 109);
     background-color: rgb(199, 199, 199);
 
