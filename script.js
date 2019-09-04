@@ -57,7 +57,6 @@ const numbers = document.querySelectorAll(".number");
 numbers.forEach(function(number) {
     number.addEventListener("click", function(e) {
         if(equalsPress == true) {
-            visuals = "";
             pointDouble = false;
             equalsPress = false;
         }

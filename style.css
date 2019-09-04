@@ -40,12 +40,12 @@ body {
     background-color: rgb(255, 255, 153);
 }
 
-.operator:hover{
-    background-color: rgb(255, 255, 93) !important;
+.operator:hover, .equals:hover {
+    background-color: rgb(238, 238, 54) !important;
 }
 
-.equals:hover {
-    background-color: rgb(255, 255, 93) !important;
+.operator:active, .equals:active {
+    background-color: rgb(206, 206, 28) !important;
 }
 
 .grid-items:not(.screen):hover {
