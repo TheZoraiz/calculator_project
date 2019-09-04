@@ -45,13 +45,14 @@ function converter(visuals) {
     operate(Number(n1), Number(n2), op);
 ;}
 
+//Trackers and screen
 let visuals = "";
 let pointDouble = false;
 let equalsPress = false;
 
 const display = document.querySelector('.screen p');
 
-
+//Number Keys
 const numbers = document.querySelectorAll(".number");
 numbers.forEach(function(number) {
     number.addEventListener("click", function(e) {
@@ -73,11 +74,11 @@ numbers.forEach(function(number) {
     });
 });
 
+//Operator Keys
 const operators = document.querySelectorAll(".operator");
 operators.forEach(function(operator) {
     operator.addEventListener("click", function(e) {
         if(equalsPress == true) {
-            visuals = "";
             pointDouble = false;
             equalsPress = false;
         }
@@ -92,22 +93,28 @@ operators.forEach(function(operator) {
     });
 });
 
+//Equals Key
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", function(){
     equalsPress = true;
+    pointDouble = false;
     converter(visuals);
 });
 
+//Remove Key
 const remove = document.querySelector(".remove");
 remove.addEventListener("click", function() {
     visuals = visuals.split("");
     visuals.splice((visuals.length - 1),1);
     visuals = visuals.join("");
+    pointDouble = false;
     display.textContent = visuals;
 });
 
+//Clear Key
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", function() {
     visuals = "";
+    pointDouble = false;
     display.textContent = visuals;
 });
