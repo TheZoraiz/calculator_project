@@ -51,7 +51,6 @@ body {
 .grid-items:not(.screen):hover {
     color: rgb(109, 109, 109);
     background-color: rgb(199, 199, 199);
-
 }
 
 .grid-items:not(.screen):active {
@@ -114,5 +113,23 @@ img {
         width: 100%;
         height: 80%;
         margin: 0;
+    }
+
+    .grid-items:not(.screen):hover {
+        color: rgb(129, 129, 129);
+        background-color: rgb(219, 219, 219);
+    }
+
+    .grid-items:not(.screen):active {
+        color: rgb(109, 109, 109);
+        background-color: rgb(199, 199, 199);
+    }
+    
+    .operator:hover, .equals:hover {
+        background-color: rgb(255, 255, 153) !important;
+    }
+    
+    .operator:active, .equals:active {
+        background-color: rgb(238, 238, 54) !important;
     }
 }
