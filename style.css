@@ -132,4 +132,8 @@ img {
     .operator:active, .equals:active {
         background-color: rgb(238, 238, 54) !important;
     }
+
+    .screen p {
+        font-size: 30px;
+    }
 }
